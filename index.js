@@ -48,7 +48,7 @@ function rearrange() {
     
     for(let i=0; i<wordList.length; i++) {
 
-        if(isPossible(wordList[i],inputElement.value)) {
+        if(isPossible(wordList[i],(inputElement.value.toLowerCase()))) {
             ansElement.innerHTML = `${wordList[i]}`;
             isFound = true;
             break;

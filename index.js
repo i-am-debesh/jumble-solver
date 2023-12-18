@@ -37,7 +37,12 @@ fetch(filePath)
 
     wordList.push(...words);
     findBtnElement.addEventListener('click', ()=>{
+        ansElement.innerHTML = '';
         rearrange();
+        if(ansElement.innerHTML === '') {
+            ansElement.innerHTML = "Not Found";
+        }
+
     });
     
 })
@@ -49,14 +54,14 @@ function rearrange() {
     for(let i=0; i<wordList.length; i++) {
 
         if(isPossible(wordList[i],(inputElement.value.toLowerCase()))) {
-            ansElement.innerHTML = `${wordList[i]}`;
+            //ansElement.innerHTML = `${wordList[i]}`;
+            ansElement.innerHTML += `<p>${wordList[i]}</p>`;
             isFound = true;
-            break;
-        }else{
-            ansElement.innerHTML = `not found`;
             
         }
     }
     
+    
+    return isFound;
 }
 
